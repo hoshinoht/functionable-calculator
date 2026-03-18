@@ -48,6 +48,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import edu.singaporetech.inf2007quiz01.R
+import edu.singaporetech.inf2007quiz01.personality.CalBotPersonalityEngine
 import edu.singaporetech.inf2007quiz01.ui.theme.calBotAccent
 import kotlinx.coroutines.launch
 
@@ -55,7 +56,8 @@ import kotlinx.coroutines.launch
 @Composable
 fun ContactScreen(
     calBotOrder: List<Int>,
-    onCalBotClick: (Int, String) -> Unit
+    onCalBotClick: (Int, String) -> Unit,
+    getPersonality: (Int) -> CalBotPersonalityEngine.Personality
 ) {
     Scaffold(
         topBar = {
@@ -86,6 +88,7 @@ fun ContactScreen(
             items(calBotOrder, key = { it }) { calBotId ->
                 AnimatedCalBotCard(
                     calBotId = calBotId,
+                    personality = getPersonality(calBotId),
                     onClick = { onCalBotClick(calBotId, "CalBot $calBotId") }
                 )
             }
@@ -97,6 +100,7 @@ fun ContactScreen(
 @Composable
 private fun AnimatedCalBotCard(
     calBotId: Int,
+    personality: CalBotPersonalityEngine.Personality,
     onClick: () -> Unit
 ) {
     // Entry animation
@@ -175,9 +179,14 @@ private fun AnimatedCalBotCard(
                     color = MaterialTheme.colorScheme.onSurface
                 )
                 Text(
-                    text = "Tap to calculate",
+                    text = personality.codename,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                Text(
+                    text = personality.mood,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = accent
                 )
             }
             Spacer(Modifier.weight(1f))

@@ -79,7 +79,8 @@ class MainActivity : ComponentActivity() {
                                     onCalBotClick = { id, name ->
                                         viewModel.setCalBot(id, name)
                                         backStack.add(CalculatorRoute(id, name))
-                                    }
+                                    },
+                                    getPersonality = viewModel::getPersonality
                                 )
                             }
 
