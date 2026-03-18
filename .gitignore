@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+.claude/
+app/src/main/rust/target/
