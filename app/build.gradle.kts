@@ -86,6 +86,31 @@ android {
     }
 }
 
+// ── Rust Native Build Task ─────────────────────────────────────────────────
+// Builds the CalcuLux Rust Core Engine for all target ABIs via cargo-ndk.
+// Because one native build system (CMake) wasn't enough.
+tasks.register<Exec>("buildRust") {
+    workingDir = file("src/main/rust")
+    val ndkDir = android.ndkDirectory.absolutePath
+    val home = System.getProperty("user.home")
+    val cargoBin = "$home/.cargo/bin"
+    environment("ANDROID_NDK_HOME", ndkDir)
+    // Ensure rustup-managed toolchain takes precedence over Homebrew
+    environment("PATH", "$cargoBin:${System.getenv("PATH")}")
+    commandLine(
+        "$cargoBin/cargo", "ndk",
+        "-t", "arm64-v8a",
+        "-t", "x86_64",
+        "-t", "x86",
+        "-o", "../jniLibs",
+        "build", "--release"
+    )
+}
+
+tasks.named("preBuild") {
+    dependsOn("buildRust")
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

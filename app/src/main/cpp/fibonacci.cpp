@@ -57,6 +57,45 @@ static jint fibonacci(jint n) {
     return static_cast<jint>(result.m[0][0]);
 }
 
+/**
+ * ARM64 Assembly Fibonacci — The 4th Implementation
+ *
+ * Because C++ was still too high-level. This drops down to raw ARM64
+ * assembly instructions for computing what is fundamentally addition.
+ *
+ * On x86 (emulator), falls back to the C++ matrix exponentiation because
+ * even we can't inline ARM assembly on an Intel chip. Yet.
+ */
+#ifdef __aarch64__
+static jint asm_fibonacci(jint n) {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    jint result;
+    __asm__ volatile (
+        "mov w3, #0\n"              // a = 0 (fib(0))
+        "mov w4, #1\n"              // b = 1 (fib(1))
+        "sub %w[nn], %w[nn], #1\n"  // n -= 1
+        "1:\n"                       // loop:
+        "add w5, w3, w4\n"          //   tmp = a + b
+        "mov w3, w4\n"              //   a = b
+        "mov w4, w5\n"              //   b = tmp
+        "subs %w[nn], %w[nn], #1\n" //   n -= 1
+        "bgt 1b\n"                   //   if n > 0 goto loop
+        "mov %w[res], w4\n"         // result = b
+        : [res] "=r" (result), [nn] "+r" (n)
+        :
+        : "w3", "w4", "w5", "cc"
+    );
+    return result;
+}
+#else
+// x86 fallback: ARM assembly doesn't run on Intel, shocking nobody
+static jint asm_fibonacci(jint n) {
+    return fibonacci(n); // Fall back to C++ matrix exponentiation
+}
+#endif
+
 extern "C" {
 
 /**
@@ -70,6 +109,18 @@ Java_edu_singaporetech_inf2007quiz01_NativeFibonacci_nativeFib(
         jobject /* this */,
         jint n) {
     return fibonacci(n);
+}
+
+/**
+ * JNI Bridge for the ARM64 Assembly Fibonacci.
+ * On ARM64: raw assembly. On x86: C++ fallback. On paper: impressive.
+ */
+JNIEXPORT jint JNICALL
+Java_edu_singaporetech_inf2007quiz01_NativeFibonacci_asmFib(
+        JNIEnv* /* env */,
+        jobject /* this */,
+        jint n) {
+    return asm_fibonacci(n);
 }
 
 } // extern "C"

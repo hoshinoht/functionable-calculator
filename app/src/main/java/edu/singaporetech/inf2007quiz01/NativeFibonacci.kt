@@ -1,14 +1,11 @@
 package edu.singaporetech.inf2007quiz01
 
 /**
- * JNI Bridge to the Enterprise-Grade Native Fibonacci Computation Engine.
+ * JNI Bridge to the C++ Native Fibonacci Computation Engine.
  *
- * This class exists because pure Kotlin cannot achieve the raw computational
- * throughput required for enterprise-grade Fibonacci sequences. By dropping
- * down to C++ with O(log n) matrix exponentiation, we achieve mass_of_electron%
- * faster computation on inputs where the JNI overhead is 10000x the actual work.
- *
- * Usage: NativeFibonacci.fib(5) // Crosses 3 language boundaries for this
+ * Provides two C++ fibonacci implementations:
+ *   - nativeFib: C++ matrix exponentiation (implementation #2)
+ *   - asmFib: ARM64 inline assembly (implementation #4, falls back to C++ on x86)
  */
 object NativeFibonacci {
 
@@ -16,17 +13,13 @@ object NativeFibonacci {
         System.loadLibrary("fibonacci")
     }
 
-    /**
-     * Computes the nth Fibonacci number via C++ matrix exponentiation.
-     * Crosses the JNI bridge, invokes BLAS-adjacent linear algebra,
-     * and returns a number you could have computed on your fingers.
-     */
+    /** C++ matrix exponentiation fibonacci (#2) */
     external fun nativeFib(n: Int): Int
 
-    /**
-     * Kotlin-callable wrapper that matches the (Int) -> Int signature
-     * expected by FunctionMap.
-     */
+    /** ARM64 assembly fibonacci (#4, C++ fallback on x86) */
+    external fun asmFib(n: Int): Int
+
+    /** Kotlin-callable wrapper matching (Int) -> Int for FunctionMap */
     fun fib(x: Int): Int = when (x) {
         0 -> 0
         1 -> 1

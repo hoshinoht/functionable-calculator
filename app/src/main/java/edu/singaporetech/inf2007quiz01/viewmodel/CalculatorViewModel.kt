@@ -1,15 +1,20 @@
 package edu.singaporetech.inf2007quiz01.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import edu.singaporetech.inf2007quiz01.FunctionMap
+import edu.singaporetech.inf2007quiz01.RustBridge
+import edu.singaporetech.inf2007quiz01.consensus.FibonacciConsensusEngine
 import edu.singaporetech.inf2007quiz01.data.ExpressionHistory
 import edu.singaporetech.inf2007quiz01.data.ExpressionHistoryDao
 import edu.singaporetech.inf2007quiz01.data.MathJsApi
 import edu.singaporetech.inf2007quiz01.data.PreferencesManager
 import edu.singaporetech.inf2007quiz01.navigation.CalculatorRoute
+import edu.singaporetech.inf2007quiz01.personality.CalBotPersonalityEngine
+import edu.singaporetech.inf2007quiz01.service.CalculationMicroservice
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,13 +24,35 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * CalculatorViewModel — The Orchestration Layer
+ *
+ * Previously a simple ViewModel that did math. Now the central nervous system
+ * of a distributed computation platform that routes arithmetic through:
+ *   - A Channel-based microservice
+ *   - The Hilt-injected Operator Strategy Engine
+ *   - Individual Rust JNI calls per operator
+ *   - Proof-of-Work mining
+ *   - Blockchain recording
+ *   - CalBot personality commentary
+ *
+ * For Fibonacci, uses the Byzantine Fault Tolerant Consensus Engine that
+ * runs 5 implementations in parallel across 3 languages + assembly + WASM.
+ */
 @HiltViewModel
 class CalculatorViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val dao: ExpressionHistoryDao,
     private val mathJsApi: MathJsApi,
-    private val preferencesManager: PreferencesManager
+    private val preferencesManager: PreferencesManager,
+    private val calculationMicroservice: CalculationMicroservice,
+    private val fibonacciConsensusEngine: FibonacciConsensusEngine,
+    private val calBotPersonalityEngine: CalBotPersonalityEngine
 ) : ViewModel() {
+
+    companion object {
+        private const val TAG = "CalculatorVM"
+    }
 
     private val _displayText = MutableStateFlow("")
     val displayText: StateFlow<String> = _displayText.asStateFlow()
@@ -57,6 +84,11 @@ class CalculatorViewModel @Inject constructor(
         currentCalBotRoute = CalculatorRoute(id, name)
         hasComputed = false
         _displayText.value = ""
+
+        // Log CalBot personality on selection
+        val personality = calBotPersonalityEngine.getPersonality(id)
+        Log.d(TAG, "Selected CalBot $id (${personality.codename}) — " +
+                "Mood: ${personality.mood}, Lucky #: ${personality.luckyNumber}")
 
         historyJob?.cancel()
         toggleJob?.cancel()
@@ -98,7 +130,9 @@ class CalculatorViewModel @Inject constructor(
                         }
                     }
                 } else {
-                    computeLocally(expression)
+                    // Route through the Calculation Microservice
+                    // (Channel → Strategy Engine → Operator → Rust JNI → Proof-of-Work → Blockchain)
+                    calculationMicroservice.compute(expression, currentCalBotId)
                 }
 
                 addToHistory(expression)
@@ -108,26 +142,6 @@ class CalculatorViewModel @Inject constructor(
                 _displayText.value = "Error"
             }
         }
-    }
-
-    private fun computeLocally(expression: String): String {
-        // Find the operator position (skip the first character to allow negative first operand)
-        val regex = Regex("""(-?\d+)([+\-*/])(-?\d+)""")
-        val match = regex.find(expression) ?: return "Error"
-
-        val num1 = match.groupValues[1].toInt()
-        val op = match.groupValues[2]
-        val num2 = match.groupValues[3].toInt()
-
-        val result = when (op) {
-            "+" -> num1 + num2
-            "-" -> num1 - num2
-            "*" -> num1 * num2
-            "/" -> if (num2 != 0) num1 / num2 else return "Error"
-            else -> return "Error"
-        }
-
-        return result.toString()
     }
 
     private suspend fun addToHistory(expression: String) {
@@ -154,10 +168,21 @@ class CalculatorViewModel @Inject constructor(
             addToHistory(fibExpression)
         }
 
-        // Compute on background thread so UI remains responsive
+        // Run the Byzantine Fault Tolerant Fibonacci Consensus Engine
+        // All 5 implementations execute in parallel, majority vote determines result
         viewModelScope.launch(Dispatchers.Default) {
-            val result = FunctionMap.functionMap["fib"]!!(input)
-            _displayText.value = result.toString()
+            val consensus = fibonacciConsensusEngine.compute(input)
+            Log.d(TAG, "Fibonacci consensus: ${consensus.value} " +
+                    "(unanimous: ${consensus.unanimous}, votes: ${consensus.votes})")
+
+            // Mine proof-of-work for the fibonacci computation
+            val pow = RustBridge.proofOfWork("fib($input)=${consensus.value}")
+            Log.d(TAG, "Fibonacci PoW: $pow")
+
+            // Record in blockchain
+            RustBridge.recordCalculation(fibExpression, consensus.value.toString())
+
+            _displayText.value = consensus.value.toString()
             hasComputed = true
         }
     }

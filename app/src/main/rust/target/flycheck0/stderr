@@ -1,0 +1,374 @@
+   0.051682166s  INFO prepare_target{force=false package_id=calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust) target="calculux_core"}: cargo::core::compiler::fingerprint: fingerprint error for calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust)/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("calculux_core", ["cdylib"], "/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/src/lib.rs", Edition2021) }
+   0.051694208s  INFO prepare_target{force=false package_id=calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust) target="calculux_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/calculux-core-aae1f4fa856ab906/lib-calculux_core`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::cli::main
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+   0.054459833s  INFO prepare_target{force=false package_id=jni v0.21.1 target="jni"}: cargo::core::compiler::fingerprint: fingerprint error for jni v0.21.1/Check { test: false }/TargetInner { name_inferred: true, ..: lib_target("jni", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/jni-0.21.1/src/lib.rs", Edition2018) }
+   0.054464541s  INFO prepare_target{force=false package_id=jni v0.21.1 target="jni"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/jni-7859192597c11424/lib-jni`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.054667416s  INFO prepare_target{force=false package_id=combine v4.6.7 target="combine"}: cargo::core::compiler::fingerprint: fingerprint error for combine v4.6.7/Check { test: false }/TargetInner { ..: lib_target("combine", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/combine-4.6.7/src/lib.rs", Edition2018) }
+   0.054671333s  INFO prepare_target{force=false package_id=combine v4.6.7 target="combine"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/combine-8cf109ffa79b0adf/lib-combine`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.055315958s  INFO prepare_target{force=false package_id=regex v1.12.3 target="regex"}: cargo::core::compiler::fingerprint: fingerprint error for regex v1.12.3/Check { test: false }/TargetInner { ..: lib_target("regex", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-1.12.3/src/lib.rs", Edition2021) }
+   0.055320291s  INFO prepare_target{force=false package_id=regex v1.12.3 target="regex"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/regex-1b7a884044eb2aea/lib-regex`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.055434625s  INFO prepare_target{force=false package_id=aho-corasick v1.1.4 target="aho_corasick"}: cargo::core::compiler::fingerprint: fingerprint error for aho-corasick v1.1.4/Check { test: false }/TargetInner { ..: lib_target("aho_corasick", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aho-corasick-1.1.4/src/lib.rs", Edition2021) }
+   0.055438583s  INFO prepare_target{force=false package_id=aho-corasick v1.1.4 target="aho_corasick"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/aho-corasick-f2d25a45c82f71b6/lib-aho_corasick`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.055507458s  INFO prepare_target{force=false package_id=regex-automata v0.4.14 target="regex_automata"}: cargo::core::compiler::fingerprint: fingerprint error for regex-automata v0.4.14/Check { test: false }/TargetInner { benched: false, ..: lib_target("regex_automata", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/regex-automata-0.4.14/src/lib.rs", Edition2021) }
+   0.055511125s  INFO prepare_target{force=false package_id=regex-automata v0.4.14 target="regex_automata"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/regex-automata-492ca48fc9fc17e9/lib-regex_automata`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.056097083s  INFO prepare_target{force=false package_id=wasmi v0.43.1 target="wasmi"}: cargo::core::compiler::fingerprint: fingerprint error for wasmi v0.43.1/Check { test: false }/TargetInner { ..: lib_target("wasmi", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wasmi-0.43.1/src/lib.rs", Edition2021) }
+   0.056100750s  INFO prepare_target{force=false package_id=wasmi v0.43.1 target="wasmi"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wasmi-fdf2f853f28ad804/lib-wasmi`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+   0.056391458s  INFO prepare_target{force=false package_id=wasmi_core v0.43.1 target="wasmi_core"}: cargo::core::compiler::fingerprint: fingerprint error for wasmi_core v0.43.1/Check { test: false }/TargetInner { ..: lib_target("wasmi_core", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wasmi_core-0.43.1/src/lib.rs", Edition2021) }
+   0.056395208s  INFO prepare_target{force=false package_id=wasmi_core v0.43.1 target="wasmi_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wasmi_core-0c3462efeed1436c/lib-wasmi_core`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.056604625s  INFO prepare_target{force=false package_id=wasmi_ir v0.43.1 target="wasmi_ir"}: cargo::core::compiler::fingerprint: fingerprint error for wasmi_ir v0.43.1/Check { test: false }/TargetInner { ..: lib_target("wasmi_ir", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wasmi_ir-0.43.1/src/lib.rs", Edition2021) }
+   0.056608333s  INFO prepare_target{force=false package_id=wasmi_ir v0.43.1 target="wasmi_ir"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wasmi_ir-5808ab105e0189db/lib-wasmi_ir`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.056676750s  INFO prepare_target{force=false package_id=wasmparser v0.227.1 target="wasmparser"}: cargo::core::compiler::fingerprint: fingerprint error for wasmparser v0.227.1/Check { test: false }/TargetInner { ..: lib_target("wasmparser", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wasmparser-0.227.1/src/lib.rs", Edition2021) }
+   0.056679791s  INFO prepare_target{force=false package_id=wasmparser v0.227.1 target="wasmparser"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wasmparser-54575429e649fa3f/lib-wasmparser`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.056863375s  INFO prepare_target{force=false package_id=wat v1.245.1 target="wat"}: cargo::core::compiler::fingerprint: fingerprint error for wat v1.245.1/Check { test: false }/TargetInner { ..: lib_target("wat", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wat-1.245.1/src/lib.rs", Edition2021) }
+   0.056865916s  INFO prepare_target{force=false package_id=wat v1.245.1 target="wat"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wat-1a6bb33a03352689/lib-wat`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   8: cargo::ops::cargo_compile::compile_ws
+   9: cargo::ops::cargo_compile::compile_with_exec
+  10: cargo::ops::cargo_compile::compile
+  11: cargo::commands::check::exec
+  12: <cargo::cli::Exec>::exec
+  13: cargo::cli::main
+  14: cargo::main
+  15: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  16: std::rt::lang_start::<()>::{closure#0}
+  17: std::rt::lang_start_internal
+  18: _main
+   0.056949375s  INFO prepare_target{force=false package_id=wast v245.0.1 target="wast"}: cargo::core::compiler::fingerprint: fingerprint error for wast v245.0.1/Check { test: false }/TargetInner { ..: lib_target("wast", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wast-245.0.1/src/lib.rs", Edition2021) }
+   0.056951500s  INFO prepare_target{force=false package_id=wast v245.0.1 target="wast"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wast-e750d0cc7573a2b3/lib-wast`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   9: cargo::ops::cargo_compile::compile_ws
+  10: cargo::ops::cargo_compile::compile_with_exec
+  11: cargo::ops::cargo_compile::compile
+  12: cargo::commands::check::exec
+  13: <cargo::cli::Exec>::exec
+  14: cargo::cli::main
+  15: cargo::main
+  16: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  17: std::rt::lang_start::<()>::{closure#0}
+  18: std::rt::lang_start_internal
+  19: _main
+   0.057171791s  INFO prepare_target{force=false package_id=wasm-encoder v0.245.1 target="wasm_encoder"}: cargo::core::compiler::fingerprint: fingerprint error for wasm-encoder v0.245.1/Check { test: false }/TargetInner { ..: lib_target("wasm_encoder", ["lib"], "/Users/cantabile/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wasm-encoder-0.245.1/src/lib.rs", Edition2021) }
+   0.057175833s  INFO prepare_target{force=false package_id=wasm-encoder v0.245.1 target="wasm_encoder"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/wasm-encoder-400e0e34154c5682/lib-wasm_encoder`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: cargo::core::compiler::compile
+   6: cargo::core::compiler::compile
+   7: cargo::core::compiler::compile
+   8: cargo::core::compiler::compile
+   9: <cargo::core::compiler::build_runner::BuildRunner>::compile
+  10: cargo::ops::cargo_compile::compile_ws
+  11: cargo::ops::cargo_compile::compile_with_exec
+  12: cargo::ops::cargo_compile::compile
+  13: cargo::commands::check::exec
+  14: <cargo::cli::Exec>::exec
+  15: cargo::cli::main
+  16: cargo::main
+  17: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  18: std::rt::lang_start::<()>::{closure#0}
+  19: std::rt::lang_start_internal
+  20: _main
+   0.057281333s  INFO prepare_target{force=false package_id=calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust) target="calculux_core"}: cargo::core::compiler::fingerprint: fingerprint error for calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust)/Check { test: true }/TargetInner { name_inferred: true, ..: lib_target("calculux_core", ["cdylib"], "/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/src/lib.rs", Edition2021) }
+   0.057287750s  INFO prepare_target{force=false package_id=calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust) target="calculux_core"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust/target/debug/.fingerprint/calculux-core-56860c1debd07610/test-lib-calculux_core`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   2: cargo_util::paths::read
+   3: cargo::core::compiler::fingerprint::prepare_target
+   4: cargo::core::compiler::compile
+   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   6: cargo::ops::cargo_compile::compile_ws
+   7: cargo::ops::cargo_compile::compile_with_exec
+   8: cargo::ops::cargo_compile::compile
+   9: cargo::commands::check::exec
+  10: <cargo::cli::Exec>::exec
+  11: cargo::cli::main
+  12: cargo::main
+  13: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  14: std::rt::lang_start::<()>::{closure#0}
+  15: std::rt::lang_start_internal
+  16: _main
+    Checking wasm-encoder v0.245.1
+    Checking aho-corasick v1.1.4
+    Checking combine v4.6.7
+    Checking wasmi_core v0.43.1
+    Checking wasmparser v0.227.1
+    Checking wasmi_ir v0.43.1
+    Checking regex-automata v0.4.14
+    Checking wast v245.0.1
+    Checking regex v1.12.3
+    Checking jni v0.21.1
+    Checking wat v1.245.1
+    Checking wasmi v0.43.1
+    Checking calculux-core v2.1.0 (/Users/cantabile/projects/sit/inf2007/lab-test/functionable-calculator/app/src/main/rust)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.21s

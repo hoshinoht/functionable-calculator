@@ -1,0 +1,20 @@
+[package]
+name = "calculux-core"
+version = "2.1.0"
+edition = "2021"
+description = "Enterprise-Grade Arithmetic Computation Engine written in Rust because Kotlin was too safe and comfortable"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+jni = "0.21"
+sha2 = "0.10"
+regex = "1"
+wasmi = "0.43"
+wat = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
