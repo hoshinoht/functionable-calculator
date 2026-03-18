@@ -36,6 +36,19 @@ val GradientPurple = Color(0xFF6750A4)
 val GradientPink = Color(0xFFE91E63)
 val GradientTeal = Color(0xFF00BCD4)
 
+// Consensus visualization
+val ConsensusAgreeBg = Color(0xFF4CAF50)
+val ConsensusByzantineBg = Color(0xFFF44336)
+val ConsensusPanelBgDark = Color(0xFF1A1A2E)
+val ConsensusPanelBgLight = Color(0xFFF0E8FF)
+
+// Node colors (one per Fibonacci implementation)
+val NodeKotlin = Color(0xFF7C4DFF)
+val NodeCpp = Color(0xFF2196F3)
+val NodeRust = Color(0xFFFF5722)
+val NodeAsm = Color(0xFF4CAF50)
+val NodeWasm = Color(0xFF00BCD4)
+
 // CalBot accent — unique hue per CalBot
 fun calBotAccent(id: Int): Color {
     val hue = ((id - 1) * 12f) % 360f
